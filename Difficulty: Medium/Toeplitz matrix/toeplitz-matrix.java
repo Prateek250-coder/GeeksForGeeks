@@ -30,17 +30,21 @@ class Check_IsToepliz {
 
 
 
+
 class Solution {
     /*You are required to complete this method*/
     boolean isToeplitz(int mat[][]) {
         // Your code here
+         int row = mat.length;
+        int col = mat[0].length;
         
-        for(int i=1; i<mat.length; i++){
-            for(int j=1; j<mat[i].length; j++){
-                if(mat[i-1][j-1] != mat[i][j])
-                return false;
+        for(int i=0; i < row - 1; i++) {
+            for(int j = 0; j < col - 1; j++) {
+                if(mat[i][j] != mat[i + 1] [j + 1]) {
+                    return false;
+                }
             }
         }
-        return true;
+        return true; 
     }
 }
