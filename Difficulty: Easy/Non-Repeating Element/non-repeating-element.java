@@ -22,7 +22,9 @@ public class Main {
                 nums); // Compute the result using the Solution class
 
             System.out.println(ans); // Print the result
-        }
+        
+System.out.println("~");
+}
     }
 }
 
@@ -33,15 +35,17 @@ public class Main {
 
 class Solution {
     public int firstNonRepeating(int[] arr) {
-        HashMap<Integer,Integer> map=new HashMap<>();
-        for(int num:arr){
-            map.put(num,map.getOrDefault(num,0)+1);
-        }
-        for(int num:arr){
-            if(map.get(num)==1){
-                return num;
+       HashMap<Integer,Integer> map=new HashMap<>();
+       for(int n:arr){
+           map.put(n,map.getOrDefault(n,0)+1);
+       }
+          for (int n : arr) {
+            if (map.get(n) == 1) {
+                return n;
             }
         }
+        
+        // Return 0 if no non-repeating element is found
         return 0;
     }
 }
