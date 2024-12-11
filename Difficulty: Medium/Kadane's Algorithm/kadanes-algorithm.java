@@ -42,21 +42,22 @@ class Solution {
     // arr: input array
     // Function to find the sum of contiguous subarray with maximum sum.
     int maxSubarraySum(int[] arr) {
- int Maxsum = Integer.MIN_VALUE;
-        int Currsum = 0;
-        
-        
-        
-        for(int i=0;i<arr.length;i++){
-            Currsum += arr[i];
-            
-            if(Currsum > Maxsum){
-                Maxsum = Currsum;
+
+                int maxSum = Integer.MIN_VALUE; // To handle negative arrays
+        int currentSum = 0;
+
+        for (int num : arr) {
+            currentSum += num;
+            if (currentSum > maxSum) {
+                maxSum = currentSum;
             }
-            if(Currsum <0){
-                Currsum =0;
+            if (currentSum < 0) {
+                currentSum = 0; // Reset if the current sum becomes negative
             }
         }
-        return Maxsum;
+        
+        return maxSum;
+    
+
     }
 }
