@@ -12,7 +12,14 @@ class GFG {
             String arr[] = read.readLine().trim().split(" ");
 
             Solution ob = new Solution();
-            System.out.println(ob.longestCommonPrefix(arr));
+            String ans = ob.longestCommonPrefix(arr);
+
+            if (ans.isEmpty()) {
+                System.out.print("\"\"");
+            } else {
+                System.out.print(ans);
+            }
+            System.out.println();
         }
     }
 }
@@ -20,18 +27,32 @@ class GFG {
 
 
 // User function Template for Java
-
 class Solution {
     public String longestCommonPrefix(String arr[]) {
-        if (arr == null || arr.length == 0) return "-1";
-
-        String prefix = arr[0];
-        for (int i = 1; i < arr.length; i++) {
-            while (arr[i].indexOf(prefix) != 0) {
-                prefix = prefix.substring(0, prefix.length() - 1);
-                if (prefix.isEmpty()) return "-1";
+        // code here
+        
+        int n=arr.length;
+        String s="";
+        String st=arr[0];
+        int count = st.length();
+        for(int i=0;i<count;i++){
+            int c=0;
+            for(int j=0;j<n;j++){
+                if(i>=arr[j].length()){
+                    c=1;
+                    break;
+                }
+                if(arr[j].charAt(i)!=st.charAt(i)){
+                    c=1;
+                }
+            }
+            if(c==0){
+                s=s+arr[0].charAt(i);
+            }
+            else{
+                break;
             }
         }
-        return prefix;
+        return s;
     }
 }
