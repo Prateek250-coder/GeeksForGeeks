@@ -35,17 +35,13 @@ System.out.println("~");
 
 class Solution {
     public int firstNonRepeating(int[] arr) {
-       HashMap<Integer,Integer> map=new HashMap<>();
-       for(int n:arr){
-           map.put(n,map.getOrDefault(n,0)+1);
+       LinkedHashMap<Integer,Integer>map = new LinkedHashMap<>();
+       for(int val:arr){
+           map.put(val,map.getOrDefault(val,0)+1);
        }
-          for (int n : arr) {
-            if (map.get(n) == 1) {
-                return n;
-            }
-        }
-        
-        // Return 0 if no non-repeating element is found
-        return 0;
+       for(Map.Entry<Integer,Integer>m:map.entrySet()){
+           if(m.getValue()==1)return m.getKey();
+       }
+       return 0;
     }
 }
