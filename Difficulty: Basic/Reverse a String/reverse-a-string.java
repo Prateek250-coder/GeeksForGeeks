@@ -25,16 +25,11 @@ class Driver {
 
 class Solution {
     public static String reverseString(String s) {
-       
-      Stack <Character> sb=new Stack<>();
-      for(char c:s.toCharArray()){
-          sb.push(c);
-      }
-      StringBuilder sbe=new StringBuilder();
-      while(!sb.isEmpty()){
-          sbe.append(sb.pop());
-      }
-      return sbe.toString();
-      
+        int n=s.length();
+        StringBuilder sb=new StringBuilder();
+        for(int i=n-1;i>=0;i--){
+            sb.append(s.charAt(i));
+        }
+        return sb.toString();
     }
 }
