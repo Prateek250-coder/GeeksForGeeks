@@ -1,38 +1,38 @@
 //{ Driver Code Starts
-//Initial Template for Java
+// Initial Template for Java
 
 import java.io.*;
 import java.util.*;
 
-class GFG
-{
-    public static void main(String args[])throws IOException
-    {
+class GFG {
+    public static void main(String args[]) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int t = Integer.parseInt(br.readLine());
-        while(t-- > 0)
-        {
+        while (t-- > 0) {
             String s;
             s = br.readLine();
-            
+
             Solution ob = new Solution();
-            
-            System.out.println(ob.modify(s));    
+
+            System.out.println(ob.modify(s));
+
+            System.out.println("~");
         }
     }
 }
 // } Driver Code Ends
 
 
-//User function Template for Java
+// User function Template for Java
 class Solution {
-    String modify(String S) {
-        StringBuilder str = new StringBuilder();
-        for (int i = 0; i < S.length(); i++) {
-            if (S.charAt(i) != ' ') {
-                str.append(S.charAt(i));
+
+    String modify(String s) {
+        String s1="";
+        for(int i=0;i<s.length();i++){
+            if(s.charAt(i)!=' '){
+                s1+=s.charAt(i);
             }
         }
-        return str.toString();
+        return s1;
     }
 }
