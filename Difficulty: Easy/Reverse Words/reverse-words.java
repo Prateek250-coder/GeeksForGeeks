@@ -34,26 +34,17 @@ class Main {
 class Solution {
     // Function to reverse words in a given string
     public String reverseWords(String s) {
-        // Remove leading and trailing spaces
-        s = s.trim();
-
-        // Split the string into words by spaces
-        String[] words = s.split("\\s+");
-
-        // Use a StringBuilder to construct the reversed words
-        StringBuilder sb = new StringBuilder();
-
-        // Traverse the array of words in reverse order
+        // Code here
+        s=s.strip();
+        String arr[]=s.split("\\s+");
         Stack<String>st=new Stack<>();
-        for(String i: words){
-            st.add(i);
+        StringBuilder sb=new StringBuilder();
+        for(int i=0;i<arr.length;i++){
+            st.push(arr[i]);
         }
         while(!st.isEmpty()){
             sb.append(st.pop()+" ");
         }
-        String a=sb.toString();
-        a=a.trim();
-        return a;
+        return sb.toString().trim();
     }
 }
-
