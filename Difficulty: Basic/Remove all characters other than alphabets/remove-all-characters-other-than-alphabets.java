@@ -24,15 +24,17 @@ class GFG {
 class Solution{
     String removeSpecialCharacter(String s) {
         StringBuilder sb=new StringBuilder();
-        char[]t=s.toCharArray();
-        for(char i:t){
-            if(Character.isAlphabetic(i)){
-                sb.append(i);
+        int c=0;
+        for(int i=0;i<s.length();i++){
+            if(Character.isLetter(s.charAt(i))){
+                sb.append(s.charAt(i));
+                c++;
             }
         }
-        if(sb.toString().length()==0){
-            return "-1";
-        }
+        if(c!=0){
         return sb.toString();
+        }else{
+        return "-1";
+    }
     }
 }
