@@ -35,13 +35,18 @@ System.out.println("~");
 
 class Solution {
     public int firstNonRepeating(int[] arr) {
-       LinkedHashMap<Integer,Integer>map = new LinkedHashMap<>();
-       for(int val:arr){
-           map.put(val,map.getOrDefault(val,0)+1);
-       }
-       for(Map.Entry<Integer,Integer>m:map.entrySet()){
-           if(m.getValue()==1)return m.getKey();
-       }
-       return 0;
+        // Complete the function
+        LinkedHashMap<Integer,Integer>map=new LinkedHashMap<>();
+        for(int i:arr){
+            map.put(i,map.getOrDefault(i,0)+1);
+        }
+        for(Map.Entry<Integer,Integer>entry:map.entrySet()){
+            if(entry.getValue()==1){
+                return entry.getKey();
+            }
+            }
+            return 0;
+        }
+        
     }
-}
+
