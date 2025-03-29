@@ -6,26 +6,31 @@ import java.util.*;
 
 
 // } Driver Code Ends
+
 // User function Template for Java
 
 class Solution {
-    public String equilibrium(int arr[]) {
-        int totalSum = 0;
-        for (int num : arr) {
-            totalSum += num;
+    String equilibrium(int arr[]) {
+        int n=arr.length;
+        if(n<3){
+            return "false";
         }
-        
-        int leftSum = 0;
-        for (int i = 0; i < arr.length; i++) {
-            if (leftSum == totalSum - leftSum - arr[i]) {
+        int right=0;
+        int left=arr[0];
+        for(int i=1;i<n;i++){
+            right+=arr[i];
+        }
+        for(int i=1;i<n;i++){
+            right-=arr[i];
+            if(right==left){
                 return "true";
             }
-            leftSum += arr[i];
+            left+=arr[i];
         }
-        
         return "false";
+        
+        }
     }
-}
 
 
 
