@@ -37,16 +37,17 @@ class Solution {
     public int firstNonRepeating(int[] arr) {
         // Complete the function
         LinkedHashMap<Integer,Integer>map=new LinkedHashMap<>();
-        for(int i:arr){
-            map.put(i,map.getOrDefault(i,0)+1);
+        for(int i=0;i<arr.length;i++){
+            map.put(arr[i],map.getOrDefault(arr[i],0)+1);
         }
-        for(Map.Entry<Integer,Integer>entry:map.entrySet()){
-            if(entry.getValue()==1){
-                return entry.getKey();
-            }
-            }
-            return 0;
-        }
+       for (Map.Entry<Integer,Integer>entry:map.entrySet()){
+           if(entry.getValue()==1){
+               return entry.getKey();
+               
+           }
+       }
+       return 0;
         
     }
+}
 
