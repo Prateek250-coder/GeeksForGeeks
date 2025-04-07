@@ -44,20 +44,22 @@ class GFG {
 
 class Solution {
     // Function to rotate an array by d elements in counter-clockwise direction.
- static void rotateArr(int arr[], int d) {
-        // add your code here
-        d=d%arr.length;
-        reverse(arr,0,arr.length-1);
-        reverse(arr,arr.length-d,arr.length-1);
-        reverse(arr,0,arr.length-1-d);
-    }
-    static void reverse(int[]arr,int start,int end){
-        while(start<end){
-            int temp=arr[start];
-            arr[start]=arr[end];
-            arr[end]=temp;
-            start++;
-            end--;
+    static void rotateArr(int arr[], int d) {
+        
+        int n = arr.length;
+        d = d % n;
+
+        
+        int[] temp = new int[n];
+
+        // Store rotated version in temp
+        for (int i = 0; i < n; i++) {
+            temp[i] = arr[(i + d) % n];
+        }
+
+        // Copy back to original array to reflect changes in place
+        for (int i = 0; i < n; i++) {
+            arr[i] = temp[i];
         }
     }
 }
