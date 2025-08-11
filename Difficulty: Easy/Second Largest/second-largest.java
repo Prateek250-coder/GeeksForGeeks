@@ -1,41 +1,25 @@
-//{ Driver Code Starts
-// Initial Template for Java
-import java.io.*;
 import java.util.*;
-import java.util.stream.Collectors;
-
-public class Main {
-
-    public static void main(String[] args) throws Exception {
-        Scanner sc = new Scanner(System.in);
-        int t = Integer.parseInt(sc.nextLine());
-        while (t-- > 0) {
-            String[] arr1Str = sc.nextLine().split(" ");
-            int[] arr = Arrays.stream(arr1Str).mapToInt(Integer::parseInt).toArray();
-            Solution ob = new Solution();
-            int ans = ob.getSecondLargest(arr);
-            System.out.println(ans);
-
-            System.out.println("~");
-        }
-    }
-}
-
-// } Driver Code Ends
-
-
-// User function Template for Java
 
 class Solution {
     public int getSecondLargest(int[] arr) {
-    int n =arr.length-1;
-        Arrays.sort(arr);
-       for(int i=n;i>0;i--){
-           if(arr[i]!=arr[i-1]){
-               return arr[i-1];
-           }
-       }
-       return -1;
-       
+        int n = arr.length;
+        HashSet<Integer> set = new HashSet<>();
+        
+        // Add elements to remove duplicates
+        for (int i = 0; i < n; i++) {
+            set.add(arr[i]);
+        }
+        
+        // If all elements are same
+        if (set.size() == 1) {
+            return -1;
+        }
+        
+        // Convert set to list and sort
+        List<Integer> list = new ArrayList<>(set);
+        Collections.sort(list);
+        
+        // Second largest is second last element
+        return list.get(list.size() - 2);
     }
-}   
+}
