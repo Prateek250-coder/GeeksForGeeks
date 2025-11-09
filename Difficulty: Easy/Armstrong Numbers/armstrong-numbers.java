@@ -2,13 +2,19 @@
 class Solution {
     static boolean armstrongNumber(int n) {
         // code here
-        int sum=0;
+        int temp=n;
+        int count=0;
+        while(temp>0){
+            int rev=temp%10;
+            temp=temp/10;
+            count++;
+        }
         int original=n;
+        int sum=0;
         while(n>0){
-            int rev=n%10;
-            sum+=Math.pow(rev,3);
-             
-            n=n/10;
+           int rem=n%10;
+           sum+=Math.pow(rem,count);
+           n=n/10;
         }
         if(sum==original){
             return true;
