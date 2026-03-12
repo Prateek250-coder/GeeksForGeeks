@@ -1,15 +1,16 @@
 class Solution {
     public char nonRepeatingChar(String s) {
         // code here
-        HashMap<Character,Integer>map=new HashMap<>();
+        LinkedHashMap<Character,Integer>map=new LinkedHashMap<>();
         for(char ch:s.toCharArray()){
             map.put(ch,map.getOrDefault(ch,0)+1);
         }
-        for(char ch:s.toCharArray()){
-            if(map.get(ch)==1){
-                return ch;
+        for(Map.Entry<Character,Integer>entry:map.entrySet()){
+            if(entry.getValue()==1){
+               return entry.getKey();
             }
         }
         return '$';
+        
     }
 }
