@@ -3,20 +3,20 @@
 class Solution {
     String removeSpecialCharacter(String s) {
         // code here
-        int n=s.length();
         StringBuilder sb=new StringBuilder();
-        for(int i=0;i<n;i++){
+        for(int i=0;i<s.length();i++){
             if(Character.isLetter(s.charAt(i))){
                 sb.append(s.charAt(i));
+               
             }
+            
+            }
+            if(sb.length()==0){
+                return "-1";
         }
-        int m=sb.length();
-        if (m>0){
-            return sb.toString();
-        }
-        return "-1";
+        return sb.toString();
         
         
+            
     }
-    
 }
