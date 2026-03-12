@@ -2,18 +2,19 @@
 class Solution {
     static String removeChars(String str1, String str2) {
         // code here
-        int n=str2.length();
-        int m=str1.length();
+        int n=str1.length();
+        int m=str2.length();
         StringBuilder sb=new StringBuilder();
         HashSet<Character>set=new HashSet<>();
-        for(int i=0;i<n;i++){
+        for(int i=0;i<m;i++){
             set.add(str2.charAt(i));
         }
-        for(int j=0;j<m;j++){
-            if(!set.contains(str1.charAt(j))){
-                sb.append(str1.charAt(j));
+        for(int i=0;i<n;i++){
+            if(!set.contains(str1.charAt(i))){
+                sb.append(str1.charAt(i));
             }
         }
         return sb.toString();
+        
     }
 }
