@@ -4,10 +4,10 @@ class Solution {
     String removeSpecialCharacter(String s) {
         // code here
         StringBuilder sb=new StringBuilder();
-        for(int i=0;i<s.length();i++){
+        int n=s.length();
+        for(int i=0;i<n;i++){
             if(Character.isLetter(s.charAt(i))){
                 sb.append(s.charAt(i));
-               
             }
             
             }
@@ -15,8 +15,5 @@ class Solution {
                 return "-1";
         }
         return sb.toString();
-        
-        
-            
     }
 }
